@@ -1,0 +1,48 @@
+pro1
+public class Employee {
+
+    // Fields (attributes)
+    String name;
+    int age;
+    double salary;
+
+    // Constructor to initialize the Employee object
+    public Employee(String name, int age, double salary) {
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+    }
+
+    // Method to display employee details
+    public void displayEmployeeInfo() {
+        System.out.println("Employee Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("Salary: " + salary);
+    }
+
+    public static void main(String[] args) {
+        // Create an Employee object using the constructor
+        Employee employee1 = new Employee("John Doe", 30, 50000.00);
+
+        // Display the details of employee1
+        employee1.displayEmployeeInfo();
+        
+        // You can create another employee object similarly
+        Employee employee2 = new Employee("Jane Smith", 28, 60000.00);
+        employee2.displayEmployeeInfo();
+    }
+}
+pro2
+public class StringToUpperCase {
+    public static void main(String[] args) {
+        // Original string
+        String str = "Hello, World!";
+
+        // Convert the string to uppercase
+        String upperStr = str.toUpperCase();
+
+        // Print the original and converted strings
+        System.out.println("Original String: " + str);
+        System.out.println("Uppercase String: " + upperStr);
+    }
+}

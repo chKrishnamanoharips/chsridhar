@@ -1,0 +1,77 @@
+pro1
+
+abstract class Animal {
+    String name;
+
+    // Constructor
+    public Animal(String name) {
+        this.name = name;
+    }
+
+    // Abstract method
+    public abstract void sound();
+}
+
+class Dog extends Animal {
+    public Dog(String name) {
+        super(name);  // Call to abstract class constructor
+    }
+
+    // Implementing the abstract method
+    public void sound() {
+        System.out.println(name + " barks.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating an instance of Dog
+        Dog dog = new Dog("Buddy");
+        dog.sound();  // Output: Buddy barks.
+    }
+}
+pro2
+
+public class MoveZeroes {
+
+    // Method to move all zeros to the end of the array
+    public static void moveZeroes(int[] arr) {
+        int nonZeroIndex = 0;  // Pointer to track the next non-zero element
+        
+        // Traverse through the array
+        for (int i = 0; i < arr.length; i++) {
+            // If the current element is non-zero
+            if (arr[i] != 0) {
+                // Swap the non-zero element with the element at nonZeroIndex
+                int temp = arr[i];
+                arr[i] = arr[nonZeroIndex];
+                arr[nonZeroIndex] = temp;
+                
+                // Increment nonZeroIndex
+                nonZeroIndex++;
+            }
+        }
+    }
+
+    // Method to print the array
+    public static void printArray(int[] arr) {
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        // Example array
+        int[] arr = {0, 1, 0, 3, 12};
+
+        System.out.println("Original Array:");
+        printArray(arr);  // Print original array
+
+        // Call the moveZeroes method
+        moveZeroes(arr);  // Move zeros to the end
+
+        System.out.println("Array After Moving Zeroes:");
+        printArray(arr);  // Print the array after moving zeros
+    }
+}

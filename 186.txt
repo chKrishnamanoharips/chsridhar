@@ -1,0 +1,44 @@
+pro1:
+public class ReverseCopyArray {
+    public static void main(String[] args) {
+        // Original array
+        int[] originalArray = {1, 2, 3, 4, 5};
+
+        // Create another array of the same size
+        int[] reversedArray = new int[originalArray.length];
+
+        // Copy elements in reverse order
+        for (int i = 0; i < originalArray.length; i++) {
+            reversedArray[i] = originalArray[originalArray.length - 1 - i];
+        }
+
+        // Print the reversed copied array
+        System.out.println("Reversed copied array:");
+        for (int num : reversedArray) {
+            System.out.print(num + " ");
+        }
+    }
+}
+pro2:
+
+import java.util.Scanner;
+
+public class SumOfNaturalNumbers {
+    public static void main(String[] args) {
+        // Create a Scanner object to read user input
+        Scanner scanner = new Scanner(System.in);
+
+        // Ask the user to input the value of n
+        System.out.print("Enter a number: ");
+        int n = scanner.nextInt();
+
+        // Calculate the sum using the formula n*(n+1)/2
+        int sum = (n * (n + 1)) / 2;
+
+        // Display the result
+        System.out.println("The sum of the first " + n + " natural numbers is: " + sum);
+
+        // Close the scanner
+        scanner.close();
+    }
+}

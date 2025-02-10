@@ -1,0 +1,79 @@
+pro1
+
+package com.example; // Declare the package
+
+public class MyClass {
+    // Class constructor
+    public MyClass() {
+        System.out.println("MyClass object created!");
+    }
+
+    // Method to display a message
+    public void displayMessage() {
+        System.out.println("Hello from MyClass in the com.example package.");
+    }
+}
+pro2
+
+public class QuickSort {
+
+    // Method to perform the partitioning of the array
+    public static int partition(int[] arr, int low, int high) {
+        // Pivot element (choosing the last element as the pivot)
+        int pivot = arr[high];
+        int i = (low - 1); // index of smaller element
+
+        // Iterate through the array and rearrange elements
+        for (int j = low; j < high; j++) {
+            // If the current element is smaller than or equal to the pivot
+            if (arr[j] <= pivot) {
+                i++;
+                // Swap arr[i] and arr[j]
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+
+        // Swap arr[i + 1] and arr[high] (or pivot)
+        int temp = arr[i + 1];
+        arr[i + 1] = arr[high];
+        arr[high] = temp;
+
+        return i + 1; // Return the partition index
+    }
+
+    // QuickSort method (recursive)
+    public static void quickSort(int[] arr, int low, int high) {
+        if (low < high) {
+            // Get the pivot index
+            int pivotIndex = partition(arr, low, high);
+
+            // Recursively apply QuickSort to the left and right sub-arrays
+            quickSort(arr, low, pivotIndex - 1); // Left sub-array
+            quickSort(arr, pivotIndex + 1, high); // Right sub-array
+        }
+    }
+
+    // Method to print the array
+    public static void printArray(int[] arr) {
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        // Example array to be sorted
+        int[] arr = {12, 35, 1, 10, 34, 1};
+
+        System.out.println("Original Array:");
+        printArray(arr);  // Print the original array
+
+        // Apply QuickSort on the array
+        quickSort(arr, 0, arr.length - 1);
+
+        System.out.println("Sorted Array:");
+        printArray(arr);  // Print the sorted array
+    }
+}

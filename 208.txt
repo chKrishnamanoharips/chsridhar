@@ -1,0 +1,82 @@
+pro1;
+class A {
+    public void displayA() {
+        System.out.println("This is class A.");
+    }
+}
+
+// Derived class (B) that inherits from A
+class B extends A {
+    public void displayB() {
+        System.out.println("This is class B.");
+    }
+}
+
+// Derived class (C) that inherits from B (and A indirectly)
+class C extends B {
+    public void displayC() {
+        System.out.println("This is class C.");
+    }
+}
+
+public class MultilevelInheritanceExample {
+    public static void main(String[] args) {
+        // Create an object of class C
+        C objC = new C();
+
+        // Access methods from all classes in the inheritance chain
+        objC.displayA(); // From class A
+        objC.displayB(); // From class B
+        objC.displayC(); // From class C
+    }
+}
+pro2:
+import java.util.Scanner;
+
+public class SumOfPrimes {
+
+    // Method to check if a number is prime
+    public static boolean isPrime(int num) {
+        if (num <= 1) {
+            return false;  // 1 and negative numbers are not prime
+        }
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false;  // Found a divisor, so it's not prime
+            }
+        }
+        return true;  // Prime if no divisors were found
+    }
+
+    // Method to calculate the sum of first n prime numbers
+    public static int sumOfPrimes(int n) {
+        int count = 0;
+        int sum = 0;
+        int num = 2;  // Start checking from 2, the first prime number
+
+        while (count < n) {
+            if (isPrime(num)) {
+                sum += num;  // Add the prime number to the sum
+                count++;     // Increment the count of primes found
+            }
+            num++;  // Move to the next number
+        }
+
+        return sum;  // Return the sum of the first n primes
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Ask the user for the number of prime numbers to sum
+        System.out.print("Enter the number of prime numbers to sum: ");
+        int n = scanner.nextInt();
+
+        // Calculate and print the sum of the first n prime numbers
+        int result = sumOfPrimes(n);
+        System.out.println("The sum of the first " + n + " prime numbers is: " + result);
+
+        // Close the scanner
+        scanner.close();
+    }
+}

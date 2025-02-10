@@ -1,0 +1,69 @@
+pro1
+public class StaticDemo {
+    // Static variable shared by all instances of the class
+    static int count = 0;
+
+    // Static block: executes when the class is first loaded
+    static {
+        System.out.println("Static block called.");
+        count = 100;  // Initialize the static variable
+    }
+
+    // Constructor: increments the static variable each time an object is created
+    public StaticDemo() {
+        count++;
+        System.out.println("Constructor called. Current count: " + count);
+    }
+
+    // Static method: can be called without creating an object
+    static void displayCount() {
+        System.out.println("Count is: " + count);
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Main method started.");
+
+        // Call the static method directly using the class name
+        StaticDemo.displayCount(); // Should output: Count is: 100
+
+        // Create two objects; each call to the constructor increments count
+        StaticDemo obj1 = new StaticDemo(); // Constructor called, count becomes 101
+        StaticDemo obj2 = new StaticDemo(); // Constructor called, count becomes 102
+
+        // Call the static method again to see the updated count
+        StaticDemo.displayCount(); // Should output: Count is: 102
+    }
+}
+pro2
+import java.util.Scanner;
+
+public class FibonacciRecursive {
+
+    // Recursive method to calculate the n-th Fibonacci number.
+    public static int fibonacci(int n) {
+        // Base cases: return n if n is 0 or 1.
+        if (n <= 1) {
+            return n;
+        }
+        // Recursive call: the n-th Fibonacci number is the sum of (n-1)th and (n-2)th numbers.
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Ask the user for the number of terms in the Fibonacci series.
+        System.out.print("Enter the number of terms: ");
+        int n = scanner.nextInt();
+
+        System.out.println("Fibonacci series up to " + n + " terms:");
+
+        // Generate and print the Fibonacci series.
+        for (int i = 0; i < n; i++) {
+            System.out.print(fibonacci(i) + " ");
+        }
+
+        // Close the scanner.
+        scanner.close();
+    }
+}

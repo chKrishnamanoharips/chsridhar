@@ -1,0 +1,66 @@
+pro1:
+import java.util.Scanner;
+
+public class MinElementInArray {
+    public static void main(String[] args) {
+        // Create a Scanner object to read user input
+        Scanner scanner = new Scanner(System.in);
+
+        // Ask the user to input the size of the array
+        System.out.print("Enter the number of elements in the array: ");
+        int size = scanner.nextInt();
+
+        // Create an array with the given size
+        int[] array = new int[size];
+
+        // Ask the user to input the elements of the array
+        System.out.println("Enter the elements of the array:");
+        for (int i = 0; i < size; i++) {
+            array[i] = scanner.nextInt();
+        }
+
+        // Initialize min to the first element of the array
+        int min = array[0];
+
+        // Loop through the array to find the minimum element
+        for (int i = 1; i < size; i++) {
+            if (array[i] < min) {
+                min = array[i];
+            }
+        }
+
+        // Print the minimum element
+        System.out.println("The minimum element in the array is: " + min);
+
+        // Close the scanner
+        scanner.close();
+    }
+}
+pro2:
+import java.util.Scanner;
+
+public class SumOfEvenNumbers {
+    public static void main(String[] args) {
+        // Create a Scanner object to read user input
+        Scanner scanner = new Scanner(System.in);
+
+        // Ask the user to input the value of n
+        System.out.print("Enter the number of even numbers to sum: ");
+        int n = scanner.nextInt();
+
+        // Variable to hold the sum of even numbers
+        int sum = 0;
+
+        // Loop to calculate the sum of first n even numbers
+        for (int i = 1; i <= n; i++) {
+            // Even numbers are generated as 2 * i
+            sum += 2 * i;
+        }
+
+        // Display the result
+        System.out.println("The sum of the first " + n + " even numbers is: " + sum);
+
+        // Close the scanner
+        scanner.close();
+    }
+}

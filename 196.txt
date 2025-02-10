@@ -1,0 +1,48 @@
+pro1;
+public class WrapperClassExample {
+    public static void main(String[] args) {
+        // Using the Integer wrapper class
+        int num = 10;
+        Integer intObj = Integer.valueOf(num);  // Wrapping the primitive int into Integer object
+        System.out.println("Integer object: " + intObj);
+
+        // Using the Double wrapper class
+        double d = 20.5;
+        Double doubleObj = Double.valueOf(d);  // Wrapping the primitive double into Double object
+        System.out.println("Double object: " + doubleObj);
+
+        // Autoboxing (Automatic conversion of primitive to wrapper object)
+        Integer autoboxedInt = num;  // Java automatically converts int to Integer
+        System.out.println("Autoboxed Integer: " + autoboxedInt);
+
+        // Unboxing (Converting wrapper object to primitive)
+        int unboxedInt = intObj.intValue();  // Unboxing: Integer to int
+        System.out.println("Unboxed int: " + unboxedInt);
+
+        // Using the Character wrapper class
+        char c = 'A';
+        Character charObj = Character.valueOf(c);  // Wrapping the primitive char into Character object
+        System.out.println("Character object: " + charObj);
+    }
+}
+pro2;
+public class StaticExample {
+    // Static variable
+    static int count = 0;
+
+    // Static method
+    static void incrementCount() {
+        count++;
+        System.out.println("Count: " + count);
+    }
+
+    public static void main(String[] args) {
+        // Calling the static method without creating an object
+        StaticExample.incrementCount();  // Outputs: Count: 1
+        StaticExample.incrementCount();  // Outputs: Count: 2
+        StaticExample.incrementCount();  // Outputs: Count: 3
+
+        // Accessing the static variable directly
+        System.out.println("Final count: " + StaticExample.count);  // Outputs: Final count: 3
+    }
+}

@@ -1,0 +1,45 @@
+PRO1
+write a source code for   IMPLEMENT RUNABLE INTERFACE
+
+
+
+
+PRO2
+debug the errors in the following program
+IMPLEMENT A PROGRAM HOW TO USE SUPER
+
+class Animal {
+    String name;
+    Animal(String name) {
+        this.name = name;
+        System.out.println("Animal constructor called");
+    }
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+class Dog extends Animal {
+    int age;
+    Dog(String name, int age) {
+        super(name);
+        this.age = age;
+        System.out.println("Dog constructor called");
+    }
+    void sound() {
+        super.sound(); 
+        System.out.println("Dog barks");
+    }
+
+    void displayInfo() {
+             System.out.println("Name: " + super.name + ", Age: " + this.age);
+    }
+}
+
+public class SuperKeywordExample {
+    public static void main(String[] args) {
+     
+        Dog dog = new Dog("Buddy", 3);
+        dog.sound();
+        dog.displayInfo();
+    }
+}

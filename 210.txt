@@ -1,0 +1,91 @@
+pro1:
+// Base class (Class A)
+class A {
+    public void displayA() {
+        System.out.println("This is class A.");
+    }
+}
+
+// Class B inherits from A (Single Inheritance)
+class B extends A {
+    public void displayB() {
+        System.out.println("This is class B.");
+    }
+}
+
+// Interface I (providing additional methods)
+interface I {
+    void displayI();
+}
+
+// Class C inherits from B (Multilevel Inheritance) and implements Interface I (Multiple Inheritance via Interface)
+class C extends B implements I {
+    public void displayC() {
+        System.out.println("This is class C.");
+    }
+
+    @Override
+    public void displayI() {
+        System.out.println("This is interface I implementation in class C.");
+    }
+}
+
+public class HybridInheritanceExample {
+    public static void main(String[] args) {
+        // Create an object of class C
+        C objC = new C();
+
+        // Accessing methods from Class A, B, and Interface I
+        objC.displayA();  // From class A
+        objC.displayB();  // From class B
+        objC.displayC();  // From class C
+        objC.displayI();  // From Interface I
+    }
+}
+pro2:
+import java.util.Scanner;
+
+public class NPrimeNumbers {
+
+    // Method to check if a number is prime
+    public static boolean isPrime(int num) {
+        if (num <= 1) {
+            return false;  // Numbers less than or equal to 1 are not prime
+        }
+        for (int i = 2; i <= Math.sqrt(num); i++) {  // Check divisibility up to sqrt(num)
+            if (num % i == 0) {
+                return false;  // Number is divisible by i, so it's not prime
+            }
+        }
+        return true;  // Number is prime if no divisors were found
+    }
+
+    // Method to print the first n prime numbers
+    public static void printNPrimes(int n) {
+        int count = 0;  // Count of prime numbers found
+        int num = 2;    // Start checking from the number 2
+
+        while (count < n) {
+            if (isPrime(num)) {
+                System.out.print(num + " ");  // Print the prime number
+                count++;  // Increment the prime number count
+            }
+            num++;  // Check the next number
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Ask the user for the number of prime numbers to print
+        System.out.print("Enter the number of prime numbers to print: ");
+        int n = scanner.nextInt();
+
+        // Call the method to print the first n prime numbers
+        System.out.println("The first " + n + " prime numbers are:");
+        printNPrimes(n);
+
+        // Close the scanner
+        scanner.close();
+    }
+}

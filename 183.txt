@@ -1,0 +1,46 @@
+PRO1:
+public class SumOfArray {
+    public static void main(String[] args) {
+        // Declare and initialize an array
+        int[] numbers = {10, 20, 30, 40, 50};
+
+        // Variable to store sum
+        int sum = 0;
+
+        // Loop through the array and calculate sum
+        for (int num : numbers) {
+            sum += num;
+        }
+
+        // Print the sum
+        System.out.println("Sum of the array: " + sum);
+    }
+}
+
+PRO2
+
+import java.util.Scanner;
+
+public class ReverseNumber {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Input number from user
+        System.out.print("Enter a number: ");
+        int num = scanner.nextInt();
+        
+        int reverse = 0;
+        
+        // Reverse logic
+        while (num != 0) {
+            int digit = num % 10; // Get last digit
+            reverse = reverse * 10 + digit; // Append digit
+            num /= 10; // Remove last digit
+        }
+        
+        // Output the reversed number
+        System.out.println("Reversed number: " + reverse);
+        
+        scanner.close();
+    }
+}

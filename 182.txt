@@ -1,0 +1,43 @@
+PRO1
+public class SimpleArray {
+    public static void main(String[] args) {
+        // Declare and initialize an array
+        int[] numbers = {10, 20, 30, 40, 50};
+
+        // Print the array elements
+        System.out.println("Array elements:");
+        for (int num : numbers) {
+            System.out.println(num);
+        }
+    }
+}
+PRO2
+
+import java.util.Scanner;
+
+public class CountDigits {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Input the number
+        System.out.print("Enter a number: ");
+        int num = scanner.nextInt();
+        
+        // Handle negative numbers
+        num = Math.abs(num);
+        
+        // Count digits
+        int count = 0;
+        int temp = num;
+        
+        do {
+            count++;
+            temp /= 10;
+        } while (temp != 0);
+        
+        // Output the result
+        System.out.println("Number of digits: " + count);
+        
+        scanner.close();
+    }
+}

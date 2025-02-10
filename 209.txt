@@ -1,0 +1,94 @@
+pro1:
+
+// Parent class (Animal)
+class Animal {
+    // Parent class property
+    String name;
+
+    // Parent class constructor
+    public Animal(String name) {
+        this.name = name;
+    }
+
+    // Parent class method
+    public void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+// Child class (Dog) inherits from Animal
+class Dog extends Animal {
+
+    // Constructor for Dog class
+    public Dog(String name) {
+        super(name);  // Call to the parent class constructor
+    }
+
+    // Dog-specific method
+    public void sound() {
+        System.out.println(name + " barks");
+    }
+}
+
+// Child class (Cat) inherits from Animal
+class Cat extends Animal {
+
+    // Constructor for Cat class
+    public Cat(String name) {
+        super(name);  // Call to the parent class constructor
+    }
+
+    // Cat-specific method
+    public void sound() {
+        System.out.println(name + " meows");
+    }
+}
+
+public class HierarchicalInheritanceExample {
+    public static void main(String[] args) {
+        // Creating objects of Dog and Cat, which are derived from Animal
+        Dog dog = new Dog("Buddy");
+        Cat cat = new Cat("Whiskers");
+
+        // Calling methods of both Dog and Cat, which are inherited from Animal
+        dog.sound();  // Output: Buddy barks
+        cat.sound();  // Output: Whiskers meows
+    }
+}
+pro2
+import java.util.Scanner;
+
+public class PrimeNumber {
+
+    // Method to check if a number is prime
+    public static boolean isPrime(int num) {
+        // Handle edge cases
+        if (num <= 1) {
+            return false;  // 1 and negative numbers are not prime
+        }
+        for (int i = 2; i <= Math.sqrt(num); i++) {  // Loop from 2 to sqrt(num)
+            if (num % i == 0) {
+                return false;  // If divisible by any number, it's not prime
+            }
+        }
+        return true;  // If no divisors were found, the number is prime
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Ask the user for input
+        System.out.print("Enter a number: ");
+        int num = scanner.nextInt();
+
+        // Check if the number is prime
+        if (isPrime(num)) {
+            System.out.println(num + " is a prime number.");
+        } else {
+            System.out.println(num + " is not a prime number.");
+        }
+
+        // Close the scanner
+        scanner.close();
+    }
+}

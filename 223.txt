@@ -1,0 +1,82 @@
+pro1
+public class ToggleCase {
+
+    // Method to toggle the case of each character in the string
+    public static String toggleCase(String str) {
+        StringBuilder toggledString = new StringBuilder();
+
+        // Iterate through each character of the string
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+
+            // If the character is lowercase, convert to uppercase
+            if (Character.isLowerCase(ch)) {
+                toggledString.append(Character.toUpperCase(ch));
+            }
+            // If the character is uppercase, convert to lowercase
+            else if (Character.isUpperCase(ch)) {
+                toggledString.append(Character.toLowerCase(ch));
+            } else {
+                // Non-alphabetic characters remain unchanged
+                toggledString.append(ch);
+            }
+        }
+
+        return toggledString.toString();
+    }
+
+    public static void main(String[] args) {
+        String input = "Hello World!";  // Example input string
+
+        System.out.println("Original String: " + input);
+
+        // Print the string with toggled case
+        String result = toggleCase(input);
+        System.out.println("Toggled Case String: " + result);
+    }
+}
+
+pro2
+
+public class ReverseArray {
+
+    // Method to reverse the array
+    public static void reverseArray(int[] arr) {
+        int start = 0;
+        int end = arr.length - 1;
+
+        // Swap the elements from start to end until we reach the middle
+        while (start < end) {
+            // Swap arr[start] with arr[end]
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+
+            // Move start forward and end backward
+            start++;
+            end--;
+        }
+    }
+
+    // Method to print the array
+    public static void printArray(int[] arr) {
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        // Example array to be reversed
+        int[] arr = {1, 2, 3, 4, 5};
+
+        System.out.println("Original Array:");
+        printArray(arr);  // Print the original array
+
+        // Reverse the array
+        reverseArray(arr);
+
+        System.out.println("Reversed Array:");
+        printArray(arr);  // Print the reversed array
+    }
+}

@@ -1,0 +1,74 @@
+pro1;
+
+public class StringFunctions {
+    public static void main(String[] args) {
+        // Define a sample string
+        String str = "Hello, Java World!";
+        
+        // 1. length() - Get the length of the string
+        int length = str.length();
+        System.out.println("Length of the string: " + length);  // Outputs: 18
+        
+        // 2. charAt() - Get the character at a specific position
+        char charAtPosition = str.charAt(7);  // 7th index, which is 'J'
+        System.out.println("Character at index 7: " + charAtPosition);  // Outputs: J
+        
+        // 3. toUpperCase() - Convert the string to uppercase
+        String upperCaseStr = str.toUpperCase();
+        System.out.println("String in uppercase: " + upperCaseStr);  // Outputs: HELLO, JAVA WORLD!
+        
+        // 4. toLowerCase() - Convert the string to lowercase
+        String lowerCaseStr = str.toLowerCase();
+        System.out.println("String in lowercase: " + lowerCaseStr);  // Outputs: hello, java world!
+        
+        // 5. substring() - Get a substring of the string
+        String substringStr = str.substring(7, 11);  // Extracts from index 7 to 10 (not inclusive of 11)
+        System.out.println("Substring from index 7 to 11: " + substringStr);  // Outputs: Java
+    }
+}
+pro2:
+
+// Abstract class
+abstract class Animal {
+    // Abstract method (does not have a body)
+    public abstract void sound();
+    
+    // Concrete method (with a body)
+    public void sleep() {
+        System.out.println("This animal is sleeping.");
+    }
+}
+
+// Subclass (Inheriting from Animal)
+class Dog extends Animal {
+    // Providing implementation for the abstract method "sound"
+    public void sound() {
+        System.out.println("The dog barks!");
+    }
+}
+
+// Subclass (Inheriting from Animal)
+class Cat extends Animal {
+    // Providing implementation for the abstract method "sound"
+    public void sound() {
+        System.out.println("The cat meows!");
+    }
+}
+
+public class AbstractClassExample {
+    public static void main(String[] args) {
+        // Cannot create an object of Animal directly, as it is abstract
+        // Animal animal = new Animal();  // This will cause a compile-time error
+
+        // Create objects of Dog and Cat
+        Animal dog = new Dog();
+        Animal cat = new Cat();
+        
+        // Call the sound method (implemented in subclasses)
+        dog.sound(); // Outputs: The dog barks!
+        dog.sleep(); // Outputs: This animal is sleeping.
+        
+        cat.sound(); // Outputs: The cat meows!
+        cat.sleep(); // Outputs: This animal is sleeping.
+    }
+}

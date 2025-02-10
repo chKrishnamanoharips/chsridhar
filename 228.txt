@@ -1,0 +1,75 @@
+pro1
+public class Student {
+
+    // Fields (attributes)
+    String name;
+    int age;
+    int rollNumber;
+
+    // Constructor to initialize the Student object
+    public Student(String name, int age, int rollNumber) {
+        this.name = name;
+        this.age = age;
+        this.rollNumber = rollNumber;
+    }
+
+    // Method to display student details
+    public void displayStudentInfo() {
+        System.out.println("Student Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("Roll Number: " + rollNumber);
+    }
+
+    public static void main(String[] args) {
+        // Create a Student object using the constructor
+        Student student1 = new Student("Alice", 20, 101);
+        
+        // Display the details of student1
+        student1.displayStudentInfo();
+        
+        // Create another Student object
+        Student student2 = new Student("Bob", 22, 102);
+        
+        // Display the details of student2
+        student2.displayStudentInfo();
+    }
+}
+pro2
+public class PrimeNumbersInRange {
+
+    // Method to check if a number is prime
+    public static boolean isPrime(int num) {
+        // Handle edge cases for numbers less than 2
+        if (num <= 1) {
+            return false;
+        }
+        
+        // Check divisibility from 2 to sqrt(num)
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false; // num is divisible by i, so it's not prime
+            }
+        }
+        return true; // num is prime
+    }
+
+    // Method to print prime numbers in a given range
+    public static void printPrimesInRange(int start, int end) {
+        System.out.println("Prime numbers between " + start + " and " + end + ":");
+        
+        for (int i = start; i <= end; i++) {
+            if (isPrime(i)) {
+                System.out.print(i + " ");  // Print prime number
+            }
+        }
+        System.out.println();  // New line after printing all primes
+    }
+
+    public static void main(String[] args) {
+        int start = 10;  // Starting range
+        int end = 50;    // Ending range
+        
+        // Print prime numbers between start and end
+        printPrimesInRange(start, end);
+    }
+}

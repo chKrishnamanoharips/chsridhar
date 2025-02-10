@@ -1,0 +1,39 @@
+pro1:
+
+public class ReverseArray {
+    public static void main(String[] args) {
+        // Declare and initialize an array
+        int[] numbers = {10, 20, 30, 40, 50};
+
+        // Print the array in reverse order
+        System.out.println("Reversed array:");
+        for (int i = numbers.length - 1; i >= 0; i--) {
+            System.out.print(numbers[i] + " ");
+        }
+    }
+}
+
+pro2
+
+public class SumOfDigitsInArray {
+    public static void main(String[] args) {
+        // Declare and initialize an array
+        int[] numbers = {12, 34, 56, 78, 90};
+
+        System.out.println("Sum of digits of each number in the array:");
+        
+        // Loop through each number in the array
+        for (int num : numbers) {
+            int sum = 0, temp = num;
+
+            // Calculate the sum of digits
+            while (temp > 0) {
+                sum += temp % 10; // Extract last digit and add to sum
+                temp /= 10; // Remove last digit
+            }
+
+            // Print the sum of digits for the current number
+            System.out.println("Sum of digits of " + num + " = " + sum);
+        }
+    }
+}

@@ -1,0 +1,89 @@
+pro1
+class MyThread extends Thread {
+    public MyThread(String name) {
+        super(name); // Set thread name
+    }
+
+    @Override
+    public void run() {
+        for (int i = 0; i < 5; i++) {
+            System.out.println(Thread.currentThread().getName() + " is executing");
+            try {
+                Thread.sleep(1000); // Sleep for 1 second
+            } catch (InterruptedException e) {
+                System.out.println(e);
+            }
+        }
+    }
+}
+
+public class ThreadPriorityExample {
+    public static void main(String[] args) {
+        // Create three threads with different priorities
+        MyThread thread1 = new MyThread("Thread 1");
+        MyThread thread2 = new MyThread("Thread 2");
+        MyThread thread3 = new MyThread("Thread 3");
+
+        // Set thread priorities
+        thread1.setPriority(Thread.MIN_PRIORITY); // Lowest priority
+        thread2.setPriority(Thread.NORM_PRIORITY); // Default priority
+        thread3.setPriority(Thread.MAX_PRIORITY); // Highest priority
+
+        // Start the threads
+        thread1.start();
+        thread2.start();
+        thread3.start();
+
+        // Main thread continues execution
+        System.out.println("Main thread is executing...");
+    }
+}
+pro2
+
+public class SelectionSort {
+
+    // Method to perform Selection Sort
+    public static void selectionSort(int[] arr) {
+        int n = arr.length;
+
+        // One by one move the boundary of the unsorted subarray
+        for (int i = 0; i < n - 1; i++) {
+            // Find the minimum element in the unsorted array
+            int minIndex = i;
+            for (int j = i + 1; j < n; j++) {
+                if (arr[j] < arr[minIndex]) {
+                    minIndex = j;
+                }
+            }
+
+            // Swap the found minimum element with the first element
+            if (minIndex != i) {
+                int temp = arr[minIndex];
+                arr[minIndex] = arr[i];
+                arr[i] = temp;
+            }
+        }
+    }
+
+    // Method to print the array
+    public static void printArray(int[] arr) {
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        // Example array to be sorted
+        int[] arr = {64, 25, 12, 22, 11};
+
+        System.out.println("Original Array:");
+        printArray(arr);  // Print the original array
+
+        // Apply Selection Sort on the array
+        selectionSort(arr);
+
+        System.out.println("Sorted Array:");
+        printArray(arr);  // Print the sorted array
+    }
+}

@@ -1,0 +1,70 @@
+pro1
+
+public class StringBufferExample {
+    public static void main(String[] args) {
+        // Create a StringBuffer object
+        StringBuffer strBuffer = new StringBuffer("Hello");
+
+        // 1. append() - Appends a string to the end of the current StringBuffer
+        strBuffer.append(" World");
+        System.out.println("After append: " + strBuffer);  // Outputs: Hello World
+
+        // 2. insert() - Inserts a string at a specified index
+        strBuffer.insert(5, ",");
+        System.out.println("After insert: " + strBuffer);  // Outputs: Hello, World
+
+        // 3. reverse() - Reverses the entire string
+        strBuffer.reverse();
+        System.out.println("After reverse: " + strBuffer);  // Outputs: dlroW ,olleH
+    }
+}
+pro2
+class Rectangle {
+    int length;
+    int width;
+
+    // Default constructor (No parameters)
+    public Rectangle() {
+        length = 0;
+        width = 0;
+        System.out.println("Default constructor called: Length = " + length + ", Width = " + width);
+    }
+
+    // Constructor with one parameter (For square)
+    public Rectangle(int side) {
+        length = side;
+        width = side;
+        System.out.println("Constructor with one parameter called: Length = " + length + ", Width = " + width);
+    }
+
+    // Constructor with two parameters (For rectangle)
+    public Rectangle(int length, int width) {
+        this.length = length;
+        this.width = width;
+        System.out.println("Constructor with two parameters called: Length = " + length + ", Width = " + width);
+    }
+
+    // Method to calculate area
+    public int area() {
+        return length * width;
+    }
+}
+
+public class ConstructorOverloadingExample {
+    public static void main(String[] args) {
+        // Create objects using different constructors
+
+        // Using default constructor
+        Rectangle rect1 = new Rectangle();
+
+        // Using constructor with one parameter (square)
+        Rectangle rect2 = new Rectangle(5);
+
+        // Using constructor with two parameters (rectangle)
+        Rectangle rect3 = new Rectangle(10, 20);
+
+        // Calculate and display areas
+        System.out.println("Area of rect2 (square): " + rect2.area());
+        System.out.println("Area of rect3 (rectangle): " + rect3.area());
+    }
+}

@@ -1,0 +1,53 @@
+pro1
+
+package com.example;
+
+public class MyOtherClass {
+    public void greet() {
+        System.out.println("Hello from MyOtherClass!");
+    }
+}
+File: Main.java
+
+java
+Copy
+Edit
+import com.example.MyClass;
+import com.example.MyOtherClass;
+
+public class Main {
+    public static void main(String[] args) {
+        MyClass obj1 = new MyClass();
+        obj1.display();  // Output: Hello from MyClass in com.example package!
+
+        MyOtherClass obj2 = new MyOtherClass();
+        obj2.greet();  // Output: Hello from MyOtherClass!
+    }
+}
+pro2
+import java.util.HashSet;
+
+public class FindDuplicates {
+    public static void findDuplicates(int[] arr) {
+        // Create a HashSet to store unique elements
+        HashSet<Integer> seen = new HashSet<>();
+        
+        System.out.println("Duplicate elements in the array are:");
+        
+        // Iterate through the array
+        for (int num : arr) {
+            // If the element is already in the set, it's a duplicate
+            if (!seen.add(num)) {
+                System.out.println(num);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        // Example array with duplicates
+        int[] arr = {12, 35, 1, 10, 12, 35, 1};
+
+        // Call the method to find duplicates
+        findDuplicates(arr);
+    }
+}

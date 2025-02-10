@@ -1,0 +1,97 @@
+pro1:
+// Class definition
+class Car {
+    // Instance variables (properties of the Car)
+    String make;
+    String model;
+    int year;
+
+    // Constructor to initialize the object
+    public Car(String make, String model, int year) {
+        this.make = make;
+        this.model = model;
+        this.year = year;
+    }
+
+    // Method to display car details
+    public void displayDetails() {
+        System.out.println("Car Make: " + make);
+        System.out.println("Car Model: " + model);
+        System.out.println("Car Year: " + year);
+    }
+}
+
+public class ClassAndObjectExample {
+    public static void main(String[] args) {
+        // Creating objects of the Car class
+        Car car1 = new Car("Toyota", "Camry", 2020);
+        Car car2 = new Car("Honda", "Civic", 2022);
+
+        // Accessing methods of the objects
+        System.out.println("Car 1 Details:");
+        car1.displayDetails();  // Outputs the details of car1
+
+        System.out.println("\nCar 2 Details:");
+        car2.displayDetails();  // Outputs the details of car2
+    }
+}
+pro2:
+// Base class (Superclass)
+class Animal {
+    // Method in the superclass
+    public void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+// Derived class (Subclass)
+class Dog extends Animal {
+    // Method overriding (runtime polymorphism)
+    @Override
+    public void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+// Derived class (Subclass)
+class Cat extends Animal {
+    // Method overriding (runtime polymorphism)
+    @Override
+    public void sound() {
+        System.out.println("Cat meows");
+    }
+}
+
+// Class for demonstrating method overloading (compile-time polymorphism)
+class MathOperation {
+    // Method to add two numbers
+    public int add(int a, int b) {
+        return a + b;
+    }
+    
+    // Overloaded method to add three numbers
+    public int add(int a, int b, int c) {
+        return a + b + c;
+    }
+}
+
+public class PolymorphismExample {
+    public static void main(String[] args) {
+        // Demonstrating method overriding (runtime polymorphism)
+        Animal myAnimal = new Animal();
+        Animal myDog = new Dog();  // Creating a Dog object but referencing it with Animal type
+        Animal myCat = new Cat();  // Creating a Cat object but referencing it with Animal type
+        
+        System.out.println("Polymorphism (Method Overriding):");
+        myAnimal.sound();  // Outputs: Animal makes a sound
+        myDog.sound();     // Outputs: Dog barks
+        myCat.sound();     // Outputs: Cat meows
+
+        // Demonstrating method overloading (compile-time polymorphism)
+        MathOperation math = new MathOperation();
+        
+        System.out.println("\nPolymorphism (Method Overloading):");
+        System.out.println("Sum of 2 numbers: " + math.add(10, 20));         // Outputs: 30
+        System.out.println("Sum of 3 numbers: " + math.add(10, 20, 30));     // Outputs: 60
+    }
+}

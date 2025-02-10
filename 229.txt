@@ -1,0 +1,79 @@
+pro1
+public class Employee {
+
+    // Fields (attributes)
+    String name;
+    int age;
+    double salary;
+
+    // Constructor to initialize the Employee object
+    public Employee(String name, int age, double salary) {
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+    }
+
+    // Method to display employee details
+    public void displayEmployeeInfo() {
+        System.out.println("Employee Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("Salary: " + salary);
+    }
+
+    // Method to give a raise to the employee's salary
+    public void giveRaise(double percentage) {
+        salary += salary * percentage / 100;
+        System.out.println("Salary after " + percentage + "% raise: " + salary);
+    }
+
+    public static void main(String[] args) {
+        // Create an Employee object using the constructor
+        Employee employee1 = new Employee("John Doe", 30, 50000);
+
+        // Display the details of employee1
+        employee1.displayEmployeeInfo();
+
+        // Giving a 10% raise to employee1's salary
+        employee1.giveRaise(10);
+
+        // Display the updated details after raise
+        employee1.displayEmployeeInfo();
+    }
+}
+pro2
+import java.util.Scanner;
+
+public class LargestNumber {
+
+    public static void main(String[] args) {
+        // Create a scanner object to read input
+        Scanner scanner = new Scanner(System.in);
+
+        // Input: Read three numbers from the user
+        System.out.print("Enter the first number: ");
+        int num1 = scanner.nextInt();
+
+        System.out.print("Enter the second number: ");
+        int num2 = scanner.nextInt();
+
+        System.out.print("Enter the third number: ");
+        int num3 = scanner.nextInt();
+
+        // Logic to find the largest number
+        int largest;
+
+        if (num1 >= num2 && num1 >= num3) {
+            largest = num1;  // num1 is the largest
+        } else if (num2 >= num1 && num2 >= num3) {
+            largest = num2;  // num2 is the largest
+        } else {
+            largest = num3;  // num3 is the largest
+        }
+
+        // Output the largest number
+        System.out.println("The largest number is: " + largest);
+
+        // Close the scanner
+        scanner.close();
+    }
+}

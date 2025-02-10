@@ -1,0 +1,58 @@
+pro1
+public class TryCatchFinallyExample {
+
+    public static void main(String[] args) {
+        try {
+            // Code that might throw an exception
+            int result = 10 / 0;  // This will throw ArithmeticException
+            System.out.println("Result: " + result);  // This line will not execute
+
+        } catch (ArithmeticException e) {
+            // Catch and handle ArithmeticException
+            System.out.println("Exception Caught: Division by zero is not allowed!");
+
+        } finally {
+            // This block will always be executed
+            System.out.println("Finally block: This will always execute, regardless of exception.");
+        }
+
+        System.out.println("Code after try-catch-finally block.");
+    }
+}
+pro2
+public class MaxOfArray {
+
+    // Method to find the maximum element in the array
+    public static int findMax(int[] arr) {
+        int max = arr[0];  // Assume the first element is the maximum initially
+
+        // Iterate through the array and compare each element to find the maximum
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];  // Update max if a larger element is found
+            }
+        }
+
+        return max;
+    }
+
+    // Method to print the array
+    public static void printArray(int[] arr) {
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        // Example array to find the maximum
+        int[] arr = {64, 34, 25, 12, 22, 11, 90};
+
+        System.out.println("Original Array:");
+        printArray(arr);  // Print the original array
+
+        // Find the maximum element in the array
+        int maxElement = findMax(arr);
+        System.out.println("Maximum Element: " + maxElement);  // Print the maximum element
+    }
+}

@@ -1,0 +1,69 @@
+pro1
+class CustomException extends Exception {
+    public CustomException(String message) {
+        super(message);
+    }
+}
+
+public class CustomExceptionExample {
+
+    public static void main(String[] args) {
+        try {
+            throw new CustomException("This is a custom exception");
+        } catch (CustomException e) {
+            System.out.println("Caught: " + e.getMessage());
+        }
+    }
+}
+pro2
+public class BubbleSort {
+
+    // Method to perform Bubble Sort
+    public static void bubbleSort(int[] arr) {
+        int n = arr.length;
+
+        // Outer loop for each pass through the array
+        for (int i = 0; i < n - 1; i++) {
+            // Flag to check if any swapping occurred
+            boolean swapped = false;
+
+            // Inner loop for comparison and swapping
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    // Swap the elements if they are in the wrong order
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                    swapped = true;
+                }
+            }
+
+            // If no two elements were swapped by inner loop, break
+            if (!swapped) {
+                break;
+            }
+        }
+    }
+
+    // Method to print the array
+    public static void printArray(int[] arr) {
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        // Example array to be sorted
+        int[] arr = {64, 34, 25, 12, 22, 11, 90};
+
+        System.out.println("Original Array:");
+        printArray(arr);  // Print the original array
+
+        // Apply Bubble Sort on the array
+        bubbleSort(arr);
+
+        System.out.println("Sorted Array:");
+        printArray(arr);  // Print the sorted array
+    }
+}

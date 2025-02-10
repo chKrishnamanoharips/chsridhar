@@ -1,0 +1,81 @@
+pro1
+interface Animal {
+    // Abstract method (no body)
+    void sound();
+
+    // Default method
+    default void eat() {
+        System.out.println("This animal eats food.");
+    }
+
+    // Static method
+    static void sleep() {
+        System.out.println("The animal is sleeping.");
+    }
+}
+
+// Class that implements the Animal interface
+class Dog implements Animal {
+    // Implementing the abstract method
+    public void sound() {
+        System.out.println("The dog barks.");
+    }
+}
+
+// Another class implementing the Animal interface
+class Cat implements Animal {
+    // Implementing the abstract method
+    public void sound() {
+        System.out.println("The cat meows.");
+    }
+}
+
+public class InterfaceExample {
+    public static void main(String[] args) {
+        // Creating objects of Dog and Cat
+        Animal dog = new Dog();
+        Animal cat = new Cat();
+
+        // Calling the implemented sound() method
+        dog.sound();  // Output: The dog barks.
+        cat.sound();  // Output: The cat meows.
+
+        // Calling the default method
+        dog.eat();    // Output: This animal eats food.
+        cat.eat();    // Output: This animal eats food.
+
+        // Calling the static method
+        Animal.sleep();  // Output: The animal is sleeping.
+    }
+}
+pro2
+import java.util.*;
+
+public class CommonElements {
+
+    // Method to find common elements between two arrays
+    public static void findCommonElements(int[] arr1, int[] arr2) {
+        System.out.println("Common elements between the two arrays are:");
+        
+        // Traverse through the first array
+        for (int i = 0; i < arr1.length; i++) {
+            // For each element in arr1, check if it exists in arr2
+            for (int j = 0; j < arr2.length; j++) {
+                if (arr1[i] == arr2[j]) {
+                    // If found, print the common element and break to avoid duplicate prints
+                    System.out.print(arr1[i] + " ");
+                    break;
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        // Example arrays
+        int[] arr1 = {1, 2, 3, 4, 5};
+        int[] arr2 = {3, 4, 5, 6, 7};
+        
+        // Call the method to find common elements
+        findCommonElements(arr1, arr2);
+    }
+}

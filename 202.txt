@@ -1,0 +1,62 @@
+pro1:
+public class Person {
+    // Instance variables
+    String name;
+    int age;
+
+    // Constructor with arguments (parameterized constructor)
+    // Note: There is no return type specified.
+    public Person(String name, int age) {
+        this.name = name;  // Initialize the 'name' field
+        this.age = age;    // Initialize the 'age' field
+        System.out.println("Parameterized constructor called.");
+    }
+
+    // Method to display the person's details
+    public void displayDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+}
+
+public class ConstructorExample {
+    public static void main(String[] args) {
+        // Creating an object of the Person class using the parameterized constructor
+        Person person1 = new Person("Alice", 30);
+        
+        // Display the person's details
+        person1.displayDetails();
+    }
+}
+pro2:
+import java.util.Scanner;
+
+public class SumNaturalRecursive {
+
+    // Recursive method to calculate the sum of first n natural numbers.
+    public static int sumNatural(int n) {
+        // Base case: when n is 0 or 1, return n
+        if (n <= 1) {
+            return n;
+        }
+        // Recursive step: n plus the sum of numbers from 1 to n-1
+        return n + sumNatural(n - 1);
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user for input
+        System.out.print("Enter the value of n: ");
+        int n = scanner.nextInt();
+
+        // Calculate the sum using the recursive method
+        int sum = sumNatural(n);
+
+        // Display the result
+        System.out.println("The sum of the first " + n + " natural numbers is: " + sum);
+
+        // Close the scanner
+        scanner.close();
+    }
+}

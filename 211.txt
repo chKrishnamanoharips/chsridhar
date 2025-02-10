@@ -1,0 +1,89 @@
+pro1;
+class Parent {
+    public final void show() {
+        System.out.println("This is a final method.");
+    }
+}
+
+class Child extends Parent {
+    // Uncommenting the following method will cause a compile-time error
+    // public void show() {  // Error: cannot override the final method
+    //     System.out.println("Overridden method");
+    // }
+}
+
+public class FinalMethodExample {
+    public static void main(String[] args) {
+        Parent obj = new Parent();
+        obj.show();
+    }
+}
+pro2:
+import java.util.Scanner;
+
+public class MatrixMultiplication {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Taking dimensions of matrix A
+        System.out.print("Enter the number of rows of matrix A: ");
+        int m = scanner.nextInt();
+        System.out.print("Enter the number of columns of matrix A: ");
+        int n = scanner.nextInt();
+
+        // Taking dimensions of matrix B
+        System.out.print("Enter the number of rows of matrix B: ");
+        int p = scanner.nextInt();
+        System.out.print("Enter the number of columns of matrix B: ");
+        int q = scanner.nextInt();
+
+        // Checking if multiplication is possible (columns of A == rows of B)
+        if (n != p) {
+            System.out.println("Matrix multiplication is not possible. The number of columns of A must be equal to the number of rows of B.");
+            return;
+        }
+
+        // Declaring matrices A, B, and C (result)
+        int[][] A = new int[m][n];
+        int[][] B = new int[p][q];
+        int[][] C = new int[m][q]; // Resultant matrix
+
+        // Input elements for matrix A
+        System.out.println("Enter elements of matrix A:");
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                A[i][j] = scanner.nextInt();
+            }
+        }
+
+        // Input elements for matrix B
+        System.out.println("Enter elements of matrix B:");
+        for (int i = 0; i < p; i++) {
+            for (int j = 0; j < q; j++) {
+                B[i][j] = scanner.nextInt();
+            }
+        }
+
+        // Matrix multiplication
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < q; j++) {
+                C[i][j] = 0;
+                for (int k = 0; k < n; k++) {
+                    C[i][j] += A[i][k] * B[k][j];
+                }
+            }
+        }
+
+        // Output the result matrix
+        System.out.println("Resultant matrix C (A * B):");
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < q; j++) {
+                System.out.print(C[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        scanner.close();
+    }
+}

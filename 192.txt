@@ -1,0 +1,93 @@
+pro1:
+import java.util.Scanner;
+
+public class MatrixSubtraction {
+    public static void main(String[] args) {
+        // Create a Scanner object to read user input
+        Scanner scanner = new Scanner(System.in);
+
+        // Ask the user to input the number of rows and columns for the matrices
+        System.out.print("Enter the number of rows: ");
+        int rows = scanner.nextInt();
+        System.out.print("Enter the number of columns: ");
+        int cols = scanner.nextInt();
+
+        // Create two matrices (A and B) of the same size
+        int[][] matrixA = new int[rows][cols];
+        int[][] matrixB = new int[rows][cols];
+        int[][] resultMatrix = new int[rows][cols];
+
+        // Ask the user to input elements for Matrix A
+        System.out.println("Enter elements for Matrix A:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                System.out.print("Element at A[" + i + "][" + j + "]: ");
+                matrixA[i][j] = scanner.nextInt();
+            }
+        }
+
+        // Ask the user to input elements for Matrix B
+        System.out.println("Enter elements for Matrix B:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                System.out.print("Element at B[" + i + "][" + j + "]: ");
+                matrixB[i][j] = scanner.nextInt();
+            }
+        }
+
+        // Subtract corresponding elements of Matrix A and Matrix B
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                resultMatrix[i][j] = matrixA[i][j] - matrixB[i][j];
+            }
+        }
+
+        // Display the result matrix (difference of matrices)
+        System.out.println("The result of matrix subtraction is:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                System.out.print(resultMatrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        // Close the scanner
+        scanner.close();
+    }
+}
+pro2:
+
+import java.util.Scanner;
+
+public class CountConsonants {
+    public static void main(String[] args) {
+        // Create a Scanner object to read user input
+        Scanner scanner = new Scanner(System.in);
+
+        // Ask the user to input a string
+        System.out.print("Enter a string: ");
+        String inputString = scanner.nextLine();
+
+        // Convert the string to lower case to handle case insensitivity
+        inputString = inputString.toLowerCase();
+
+        // Variable to hold the count of consonants
+        int consonantCount = 0;
+
+        // Loop through the string to check each character
+        for (int i = 0; i < inputString.length(); i++) {
+            char ch = inputString.charAt(i);
+
+            // Check if the character is a consonant (alphabet but not a vowel)
+            if ((ch >= 'a' && ch <= 'z') && !(ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')) {
+                consonantCount++;
+            }
+        }
+
+        // Display the count of consonants
+        System.out.println("The number of consonants in the string is: " + consonantCount);
+
+        // Close the scanner
+        scanner.close();
+    }
+}

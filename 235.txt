@@ -1,0 +1,47 @@
+pro1
+import java.util.Arrays;
+
+public class ReverseArrayCopy {
+    public static void main(String[] args) {
+        // Original array
+        int[] originalArray = {1, 2, 3, 4, 5};
+        
+        // Create a new array for the reversed copy
+        int[] reversedArray = new int[originalArray.length];
+        
+        // Reversing and copying the array
+        for (int i = 0; i < originalArray.length; i++) {
+            reversedArray[i] = originalArray[originalArray.length - 1 - i];
+        }
+        
+        // Printing the original and reversed arrays
+        System.out.println("Original Array: " + Arrays.toString(originalArray));
+        System.out.println("Reversed Copied Array: " + Arrays.toString(reversedArray));
+    }
+}
+pro2
+class MyThread extends Thread {
+  
+    public void run() {
+        for (int i = 0; i < 5; i++) {
+            System.out.println(Thread.currentThread().getId() + " Value: " + i);
+            try {
+                Thread.sleep(500);  // Sleep for 500 milliseconds
+            } catch (InterruptedException e) {
+                System.out.println(e);
+            }
+        }
+    }
+}
+
+public class MultiThreadExample {
+    public static void main(String[] args) {
+        // Creating two threads by extending the Thread class
+        MyThread thread1 = new MyThread();
+        MyThread thread2 = new MyThread();
+        
+        // Starting the threads
+        thread1.start();
+        thread2.start();
+    }
+}

@@ -1,0 +1,62 @@
+pro1
+// Parent class
+class Parent {
+    String name;
+    int age;
+
+    // Constructor of Parent class
+    Parent(String name, int age) {
+        this.name = name;
+        this.age = age;
+        System.out.println("Parent class constructor called. Name: " + this.name + ", Age: " + this.age);
+    }
+
+    // Method in Parent class
+    void display() {
+        System.out.println("Parent class - Name: " + this.name + ", Age: " + this.age);
+    }
+}
+
+// Child class inheriting from Parent class
+class Child extends Parent {
+    String school;
+
+    // Constructor of Child class
+    Child(String name, int age, String school) {
+        // Calling the Parent class constructor
+        super(name, age);
+        this.school = school;
+        System.out.println("Child class constructor called. School: " + this.school);
+    }
+
+    // Overriding display method in Child class
+    @Override
+    void display() {
+        // Calling the Parent class display method
+        super.display();
+        System.out.println("Child class - School: " + this.school);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating an instance of the Child class
+        Child childInstance = new Child("Alice", 10, "ABC School");
+
+        // Calling the display method
+        childInstance.display();
+    }
+}
+pro2
+public class StringConversion {
+    public static void main(String[] args) {
+        String originalString = "hello world";
+
+        // Convert to uppercase
+        String upperCaseString = originalString.toUpperCase();
+
+        // Print the original and converted strings
+        System.out.println("Original String: " + originalString);
+        System.out.println("Uppercase String: " + upperCaseString);
+    }
+}

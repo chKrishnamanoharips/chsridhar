@@ -1,0 +1,67 @@
+pro1
+class Parent {
+    final void display() {
+        System.out.println("This is a final method.");
+    }
+}
+
+class Child extends Parent {
+    // Trying to override the final method will result in a compile-time error
+    // void display() {  // Error: Cannot override the final method from Parent
+    //     System.out.println("This is overridden method.");
+    // }
+}
+
+public class FinalMethodExample {
+    public static void main(String[] args) {
+        Parent parent = new Parent();
+        parent.display(); // Calls the final method
+
+        // Trying to create an object of Child and call the overridden method would not work
+        Child child = new Child();
+        child.display(); // Calls the final method from the parent
+    }
+}
+pro2
+// Abstract class
+abstract class Animal {
+    // Abstract method (no body)
+    abstract void sound();
+    
+    // Concrete method
+    void eat() {
+        System.out.println("This animal is eating.");
+    }
+}
+
+// Subclass (inherited from Animal)
+class Dog extends Animal {
+    // Providing implementation of the abstract method
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+// Another subclass (inherited from Animal)
+class Cat extends Animal {
+    // Providing implementation of the abstract method
+    void sound() {
+        System.out.println("Cat meows");
+    }
+}
+
+public class AbstractClassExample {
+    public static void main(String[] args) {
+        // Cannot instantiate an abstract class
+        // Animal animal = new Animal();  // Error: Animal is abstract; cannot be instantiated
+
+        // Using subclasses that provide implementations of abstract methods
+        Animal dog = new Dog();
+        dog.sound();  // Output: Dog barks
+        dog.eat();    // Output: This animal is eating
+
+        Animal cat = new Cat();
+        cat.sound();  // Output: Cat meows
+        cat.eat();    // Output: This animal is eating
+    }
+}

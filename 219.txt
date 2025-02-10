@@ -1,0 +1,95 @@
+pro1
+
+import com.example.*;  // Import all classes from the com.example package
+
+public class Main {
+    public static void main(String[] args) {
+        MyClass obj1 = new MyClass();  // Access MyClass
+        obj1.displayMessage();
+
+        MyOtherClass obj2 = new MyOtherClass();  // Access MyOtherClass
+        obj2.greet();
+    }
+}
+pro2
+public class MergeSort {
+
+    // Method to merge two halves into a sorted array
+    public static void merge(int[] arr, int left, int mid, int right) {
+        // Find the size of two sub-arrays to be merged
+        int n1 = mid - left + 1;
+        int n2 = right - mid;
+
+        // Temporary arrays to hold the two halves
+        int[] leftArray = new int[n1];
+        int[] rightArray = new int[n2];
+
+        // Copy data to temporary arrays
+        System.arraycopy(arr, left, leftArray, 0, n1);
+        System.arraycopy(arr, mid + 1, rightArray, 0, n2);
+
+        // Merge the temporary arrays back into the original array
+        int i = 0, j = 0, k = left;
+        while (i < n1 && j < n2) {
+            if (leftArray[i] <= rightArray[j]) {
+                arr[k] = leftArray[i];
+                i++;
+            } else {
+                arr[k] = rightArray[j];
+                j++;
+            }
+            k++;
+        }
+
+        // Copy remaining elements of leftArray, if any
+        while (i < n1) {
+            arr[k] = leftArray[i];
+            i++;
+            k++;
+        }
+
+        // Copy remaining elements of rightArray, if any
+        while (j < n2) {
+            arr[k] = rightArray[j];
+            j++;
+            k++;
+        }
+    }
+
+    // Recursive method to divide and sort the array
+    public static void mergeSort(int[] arr, int left, int right) {
+        if (left < right) {
+            // Find the middle point
+            int mid = (left + right) / 2;
+
+            // Recursively sort the two halves
+            mergeSort(arr, left, mid);
+            mergeSort(arr, mid + 1, right);
+
+            // Merge the sorted halves
+            merge(arr, left, mid, right);
+        }
+    }
+
+    // Method to print the array
+    public static void printArray(int[] arr) {
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        // Example array to be sorted
+        int[] arr = {38, 27, 43, 3, 9, 82, 10};
+
+        System.out.println("Original Array:");
+        printArray(arr);  // Print the original array
+
+        // Apply MergeSort on the array
+        mergeSort(arr, 0, arr.length - 1);
+
+        System.out.println("Sorted Array:");
+        printArray(arr);  // Print the sorted array
+    }
+}

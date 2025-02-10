@@ -1,0 +1,56 @@
+pro1
+// Parent class
+class Parent {
+    String name;
+
+    // Constructor of Parent class
+    Parent(String name) {
+        this.name = name;
+        System.out.println("Parent class constructor called. Name: " + this.name);
+    }
+
+    // Method in Parent class
+    void greet() {
+        System.out.println("Hello from the Parent class, " + this.name + "!");
+    }
+}
+
+// Child class inheriting from Parent class
+class Child extends Parent {
+    int age;
+
+    // Constructor of Child class
+    Child(String name, int age) {
+        // Calling the parent class constructor
+        super(name);
+        this.age = age;
+        System.out.println("Child class constructor called. Age: " + this.age);
+    }
+
+    // Overriding greet method in Child class
+    @Override
+    void greet() {
+        System.out.println("Hello from the Child class, " + this.name + " who is " + this.age + " years old!");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating an instance of the Child class
+        Child childInstance = new Child("Alice", 10);
+
+        // Calling the greet method
+        childInstance.greet();
+    }
+}
+pro2
+public class RemoveWhitespace {
+    public static void main(String[] args) {
+        String originalString = "  Hello   World   ";
+
+        // Remove all white spaces
+        String noWhitespace = originalString.replaceAll("\\s+", "");
+        System.out.println("Original String: \"" + originalString + "\"");
+        System.out.println("String without spaces: \"" + noWhitespace + "\"");
+    }
+}

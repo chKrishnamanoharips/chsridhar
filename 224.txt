@@ -1,0 +1,65 @@
+pro1
+public class MultipleCatchExample {
+
+    public static void main(String[] args) {
+        try {
+            // Code that may throw exceptions
+            String str = null;
+            System.out.println(str.length());  // NullPointerException
+
+            int result = 10 / 0;  // ArithmeticException
+
+            int[] arr = new int[2];
+            arr[5] = 10;  // ArrayIndexOutOfBoundsException
+
+        } catch (NullPointerException e) {
+            // Handle NullPointerException
+            System.out.println("Caught a NullPointerException: " + e.getMessage());
+
+        } catch (ArithmeticException e) {
+            // Handle ArithmeticException
+            System.out.println("Caught an ArithmeticException: " + e.getMessage());
+
+        } catch (ArrayIndexOutOfBoundsException e) {
+            // Handle ArrayIndexOutOfBoundsException
+            System.out.println("Caught an ArrayIndexOutOfBoundsException: " + e.getMessage());
+        }
+    }
+}
+pro2
+public class MinOfArray {
+
+    // Method to find the minimum element in an array
+    public static int findMin(int[] arr) {
+        int min = arr[0];  // Assume the first element is the minimum initially
+
+        // Iterate through the array and compare each element to find the minimum
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] < min) {
+                min = arr[i];  // Update min if a smaller element is found
+            }
+        }
+
+        return min;
+    }
+
+    // Method to print the array
+    public static void printArray(int[] arr) {
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        // Example array to find the minimum
+        int[] arr = {64, 34, 25, 12, 22, 11, 90};
+
+        System.out.println("Original Array:");
+        printArray(arr);  // Print the original array
+
+        // Find the minimum element in the array
+        int minElement = findMin(arr);
+        System.out.println("Minimum Element: " + minElement);  // Print the minimum element
+    }
+}

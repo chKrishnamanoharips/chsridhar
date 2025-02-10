@@ -1,0 +1,81 @@
+pro1
+// Parent class
+class Animal {
+    // Instance variable
+    String name;
+
+    // Constructor
+    public Animal(String name) {
+        this.name = name;
+    }
+
+    // Method to display animal sound
+    public void makeSound() {
+        System.out.println("Animal makes sound");
+    }
+}
+
+// Child class (inherits from Animal)
+class Dog extends Animal {
+    // Constructor
+    public Dog(String name) {
+        // Call the parent class constructor
+        super(name);
+    }
+
+    // Overriding the makeSound method
+    @Override
+    public void makeSound() {
+        System.out.println(name + " says: Woof Woof!");
+    }
+}
+
+public class SingleInheritanceExample {
+    public static void main(String[] args) {
+        // Create an object of the Dog class
+        Dog dog = new Dog("Buddy");
+
+        // Call the inherited method from the parent class
+        dog.makeSound();  // Output: Buddy says: Woof Woof!
+    }
+}
+
+pro2
+import java.util.Scanner;
+
+public class EvenFibonacciSum {
+
+    // Method to calculate the sum of even Fibonacci numbers less than or equal to n
+    public static int sumEvenFibonacci(int n) {
+        int a = 0, b = 1, sum = 0;
+
+        // Iterate until the Fibonacci number exceeds n
+        while (b <= n) {
+            // If the Fibonacci number is even, add it to the sum
+            if (b % 2 == 0) {
+                sum += b;
+            }
+            // Generate the next Fibonacci number
+            int next = a + b;
+            a = b;
+            b = next;
+        }
+
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Ask the user for the upper limit for Fibonacci numbers
+        System.out.print("Enter the upper limit for Fibonacci numbers: ");
+        int n = scanner.nextInt();
+
+        // Calculate and print the sum of even Fibonacci numbers up to n
+        int result = sumEvenFibonacci(n);
+        System.out.println("The sum of even Fibonacci numbers up to " + n + " is: " + result);
+
+        // Close the scanner
+        scanner.close();
+    }
+}

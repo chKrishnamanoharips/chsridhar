@@ -1,0 +1,93 @@
+pro1:
+public class OverloadedConstructor {
+    // Instance variables
+    int a, b;
+    String message;
+
+    // Default constructor (no parameters)
+    public OverloadedConstructor() {
+        this.a = 0;
+        this.b = 0;
+        this.message = "Default";
+        System.out.println("Default constructor called.");
+    }
+
+    // Constructor with one parameter
+    public OverloadedConstructor(int a) {
+        this.a = a;
+        this.b = 0;            // Default value for b
+        this.message = "One parameter";
+        System.out.println("One-argument constructor called.");
+    }
+
+    // Constructor with two parameters
+    public OverloadedConstructor(int a, int b) {
+        this.a = a;
+        this.b = b;
+        this.message = "Two parameters";
+        System.out.println("Two-argument constructor called.");
+    }
+
+    // Constructor with three parameters
+    public OverloadedConstructor(int a, int b, String message) {
+        this.a = a;
+        this.b = b;
+        this.message = message;
+        System.out.println("Three-argument constructor called.");
+    }
+
+    // Method to display the object's state
+    public void display() {
+        System.out.println("a = " + a + ", b = " + b + ", message = " + message);
+    }
+
+    public static void main(String[] args) {
+        // Create object using the default constructor
+        OverloadedConstructor obj1 = new OverloadedConstructor();
+        obj1.display();  // Output: a = 0, b = 0, message = Default
+
+        // Create object using the constructor with one parameter
+        OverloadedConstructor obj2 = new OverloadedConstructor(10);
+        obj2.display();  // Output: a = 10, b = 0, message = One parameter
+
+        // Create object using the constructor with two parameters
+        OverloadedConstructor obj3 = new OverloadedConstructor(10, 20);
+        obj3.display();  // Output: a = 10, b = 20, message = Two parameters
+
+        // Create object using the constructor with three parameters
+        OverloadedConstructor obj4 = new OverloadedConstructor(10, 20, "Hello");
+        obj4.display();  // Output: a = 10, b = 20, message = Hello
+    }
+}
+pro2;
+import java.util.Scanner;
+
+public class ReverseStringRecursive {
+    
+    // Recursive method to reverse a string
+    public static String reverse(String s) {
+        // Base case: if the string is empty or has only one character, return it as is.
+        if (s == null || s.length() <= 1) {
+            return s;
+        }
+        // Recursive call: reverse the substring (from index 1 to end) and append the first character.
+        return reverse(s.substring(1)) + s.charAt(0);
+    }
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Prompt the user to enter a string.
+        System.out.print("Enter a string: ");
+        String input = scanner.nextLine();
+        
+        // Reverse the string using the recursive method.
+        String reversed = reverse(input);
+        
+        // Display the reversed string.
+        System.out.println("Reversed string: " + reversed);
+        
+        // Close the scanner.
+        scanner.close();
+    }
+}

@@ -1,0 +1,113 @@
+pro1
+import java.util.Scanner;
+
+public class MatrixMultiplication {
+    public static void main(String[] args) {
+        // Create a Scanner object to read user input
+        Scanner scanner = new Scanner(System.in);
+
+        // Ask the user to input the number of rows and columns for the first matrix (A)
+        System.out.print("Enter the number of rows for Matrix A: ");
+        int rowsA = scanner.nextInt();
+        System.out.print("Enter the number of columns for Matrix A: ");
+        int colsA = scanner.nextInt();
+
+        // Ask the user to input the number of rows and columns for the second matrix (B)
+        System.out.print("Enter the number of rows for Matrix B: ");
+        int rowsB = scanner.nextInt();
+        System.out.print("Enter the number of columns for Matrix B: ");
+        int colsB = scanner.nextInt();
+
+        // Check if matrix multiplication is possible
+        if (colsA != rowsB) {
+            System.out.println("Matrix multiplication is not possible. Number of columns of Matrix A must be equal to number of rows of Matrix B.");
+            return;
+        }
+
+        // Create two matrices (A and B)
+        int[][] matrixA = new int[rowsA][colsA];
+        int[][] matrixB = new int[rowsB][colsB];
+        int[][] resultMatrix = new int[rowsA][colsB];
+
+        // Ask the user to input elements for Matrix A
+        System.out.println("Enter elements for Matrix A:");
+        for (int i = 0; i < rowsA; i++) {
+            for (int j = 0; j < colsA; j++) {
+                System.out.print("Element at A[" + i + "][" + j + "]: ");
+                matrixA[i][j] = scanner.nextInt();
+            }
+        }
+
+        // Ask the user to input elements for Matrix B
+        System.out.println("Enter elements for Matrix B:");
+        for (int i = 0; i < rowsB; i++) {
+            for (int j = 0; j < colsB; j++) {
+                System.out.print("Element at B[" + i + "][" + j + "]: ");
+                matrixB[i][j] = scanner.nextInt();
+            }
+        }
+
+        // Perform matrix multiplication
+        for (int i = 0; i < rowsA; i++) {
+            for (int j = 0; j < colsB; j++) {
+                resultMatrix[i][j] = 0;
+                for (int k = 0; k < colsA; k++) {
+                    resultMatrix[i][j] += matrixA[i][k] * matrixB[k][j];
+                }
+            }
+        }
+
+        // Display the result matrix (product of matrices)
+        System.out.println("The result of matrix multiplication is:");
+        for (int i = 0; i < rowsA; i++) {
+            for (int j = 0; j < colsB; j++) {
+                System.out.print(resultMatrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        // Close the scanner
+        scanner.close();
+    }
+}
+
+pro2:
+interface Animal {
+    // Abstract method (does not have a body)
+    void sound();
+    
+    // A default method (with implementation)
+    default void sleep() {
+        System.out.println("This animal is sleeping.");
+    }
+}
+
+// Implement the interface in a class
+class Dog implements Animal {
+    // Providing implementation for the abstract method "sound"
+    public void sound() {
+        System.out.println("The dog barks!");
+    }
+}
+
+class Cat implements Animal {
+    // Providing implementation for the abstract method "sound"
+    public void sound() {
+        System.out.println("The cat meows!");
+    }
+}
+
+public class InterfaceExample {
+    public static void main(String[] args) {
+        // Create objects of Dog and Cat
+        Animal dog = new Dog();
+        Animal cat = new Cat();
+        
+        // Call the methods
+        dog.sound(); // Outputs: The dog barks!
+        dog.sleep(); // Outputs: This animal is sleeping.
+        
+        cat.sound(); // Outputs: The cat meows!
+        cat.sleep(); // Outputs: This animal is sleeping.
+    }
+}

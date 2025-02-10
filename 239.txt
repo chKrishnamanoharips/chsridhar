@@ -1,0 +1,62 @@
+pro1
+class Animal {
+    // Method in superclass
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    // Overriding the sound() method in subclass
+    @Override
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+class Cat extends Animal {
+    // Overriding the sound() method in subclass
+    @Override
+    void sound() {
+        System.out.println("Cat meows");
+    }
+}
+
+public class MethodOverridingExample {
+    public static void main(String[] args) {
+        // Creating objects of subclasses
+        Animal animal1 = new Dog();
+        Animal animal2 = new Cat();
+
+        // Calling overridden methods
+        animal1.sound();  // Dog barks
+        animal2.sound();  // Cat meows
+    }
+}
+
+pro2
+
+abstract class Animal {
+    // Abstract method (does not have a body)
+    abstract void sound();
+
+    // Regular method
+    void sleep() {
+        System.out.println("The animal is sleeping.");
+    }
+}
+
+class Dog extends Animal {
+    // Providing implementation of the abstract method
+    void sound() {
+        System.out.println("Woof");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.sound(); // Woof
+        dog.sleep(); // The animal is sleeping.
+    }
+}

@@ -1,0 +1,105 @@
+pro1
+// Parent class
+class Parent {
+    String name;
+    int age;
+
+    // Constructor with no parameters (default constructor)
+    Parent() {
+        this.name = "Unknown";
+        this.age = 0;
+        System.out.println("Parent class constructor called with no parameters.");
+    }
+
+    // Constructor with parameters
+    Parent(String name, int age) {
+        this.name = name;
+        this.age = age;
+        System.out.println("Parent class constructor called with parameters: " + this.name + ", Age: " + this.age);
+    }
+
+    // Overloaded method (Method Overloading)
+    void display() {
+        System.out.println("Parent class - Name: " + this.name + ", Age: " + this.age);
+    }
+
+    // Overloaded method with different parameters (Method Overloading)
+    void display(String message) {
+        System.out.println(message + " - Name: " + this.name + ", Age: " + this.age);
+    }
+}
+
+// Child class
+class Child extends Parent {
+    String school;
+
+    // Constructor with parameters (calling Parent class constructor)
+    Child(String name, int age, String school) {
+        super(name, age); // Call the Parent class constructor with parameters
+        this.school = school;
+        System.out.println("Child class constructor called with parameters: " + this.school);
+    }
+
+    // Overloading display method in Child class
+    @Override
+    void display() {
+        super.display(); // Calling Parent class display method
+        System.out.println("Child class - School: " + this.school);
+    }
+
+    // Overloaded method in Child class
+    void display(String message) {
+        super.display(message); // Calling Parent class overloaded display method
+        System.out.println(message + " - School: " + this.school);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating an object of Parent class using constructor overloading
+        Parent parent1 = new Parent();
+        Parent parent2 = new Parent("John", 40);
+
+        // Creating an object of Child class
+        Child child = new Child("Alice", 10, "ABC School");
+
+        // Calling overloaded methods
+        parent1.display();
+        parent2.display("Overloaded Display");
+        
+        child.display(); // Calls Child's display() method
+        child.display("Overloaded Display in Child");
+    }
+}
+pro2
+import java.util.Arrays;
+
+public class ArrayCopy {
+    public static void main(String[] args) {
+        // Original array
+        int[] originalArray = {1, 2, 3, 4, 5};
+        
+        // Method 1: Using System.arraycopy()
+        int[] copyArray1 = new int[originalArray.length];
+        System.arraycopy(originalArray, 0, copyArray1, 0, originalArray.length);
+        
+        // Method 2: Using Arrays.copyOf()
+        int[] copyArray2 = Arrays.copyOf(originalArray, originalArray.length);
+        
+        // Method 3: Using a loop (manual copy)
+        int[] copyArray3 = new int[originalArray.length];
+        for (int i = 0; i < originalArray.length; i++) {
+            copyArray3[i] = originalArray[i];
+        }
+
+        // Method 4: Using clone() method
+        int[] copyArray4 = originalArray.clone();
+        
+        // Printing all arrays
+        System.out.println("Original Array: " + Arrays.toString(originalArray));
+        System.out.println("Copied Array using System.arraycopy: " + Arrays.toString(copyArray1));
+        System.out.println("Copied Array using Arrays.copyOf: " + Arrays.toString(copyArray2));
+        System.out.println("Copied Array using loop: " + Arrays.toString(copyArray3));
+        System.out.println("Copied Array using clone(): " + Arrays.toString(copyArray4));
+    }
+}

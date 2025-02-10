@@ -1,0 +1,75 @@
+pro1:
+public class NoArgsConstructorExample {
+    // Instance variables
+    int number;
+    String message;
+
+    // No-argument constructor
+    public NoArgsConstructorExample() {
+        // Initialize instance variables with default values
+        number = 10;
+        message = "Hello, World!";
+        System.out.println("No-argument constructor called.");
+    }
+
+    // Method to display the object's state
+    public void display() {
+        System.out.println("Number: " + number);
+        System.out.println("Message: " + message);
+    }
+
+    public static void main(String[] args) {
+        // Creating an object using the no-argument constructor
+        NoArgsConstructorExample obj = new NoArgsConstructorExample();
+        // Display the values of the object's instance variables
+        obj.display();
+    }
+}
+pro2:
+import java.util.Scanner;
+
+public class PalindromeRecursive {
+
+    // Recursive method to check if a string is a palindrome.
+    public static boolean isPalindrome(String s, int start, int end) {
+        // Base condition: If the start index is greater than or equal to the end index,
+        // it means we have compared all characters.
+        if (start >= end) {
+            return true;
+        }
+        // If the characters at the start and end do not match, it's not a palindrome.
+        if (s.charAt(start) != s.charAt(end)) {
+            return false;
+        }
+        // Recursively check the remaining substring.
+        return isPalindrome(s, start + 1, end - 1);
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter a string.
+        System.out.print("Enter a string: ");
+        String input = scanner.nextLine();
+
+        // Convert the string to lowercase to ignore case sensitivity.
+        input = input.toLowerCase();
+
+        // Optionally, remove spaces and non-alphanumeric characters.
+        // This step is useful if you want to check phrases like "A man a plan a canal Panama"
+        input = input.replaceAll("[^a-z0-9]", "");
+
+        // Call the recursive method with the initial indices.
+        boolean result = isPalindrome(input, 0, input.length() - 1);
+
+        // Display the result.
+        if (result) {
+            System.out.println("The string is a palindrome.");
+        } else {
+            System.out.println("The string is not a palindrome.");
+        }
+
+        // Close the scanner.
+        scanner.close();
+    }
+}

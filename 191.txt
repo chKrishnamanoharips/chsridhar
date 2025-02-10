@@ -1,0 +1,25 @@
+PRO1
+write a source code for matrix addition
+
+PRO2
+debug the errors in the following program 
+
+CountVowels
+
+public class CountVowels {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System);
+        System.out.print("Enter a string: );
+        String inputString = scanner.nextLine();insensitivity
+        inputString = inputString.toLowerCase();
+        int vowelCount = 0
+        for (int i = 0; i < inputString.length(); i++) {
+            char ch = inputString.charAt(i);
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                vowelCount++;
+            }
+        }
+        System.out.println("The number of vowels in the string is: " + vowelCount);
+        scanner.close();
+    }
+}

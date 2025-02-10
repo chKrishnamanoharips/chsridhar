@@ -1,0 +1,52 @@
+pro1:
+public class CopyArray {
+    public static void main(String[] args) {
+        // Original array
+        int[] originalArray = {1, 2, 3, 4, 5};
+
+        // Create another array of the same size
+        int[] copiedArray = new int[originalArray.length];
+
+        // Copy elements from originalArray to copiedArray
+        for (int i = 0; i < originalArray.length; i++) {
+            copiedArray[i] = originalArray[i];
+        }
+
+        // Print the copied array
+        System.out.println("Copied array:");
+        for (int num : copiedArray) {
+            System.out.print(num + " ");
+        }
+    }
+}
+pro2:
+
+import java.util.Scanner;
+
+public class PowerOfNumber {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input base and exponent from user
+        System.out.print("Enter the base: ");
+        int base = scanner.nextInt();
+
+        System.out.print("Enter the exponent: ");
+        int exponent = scanner.nextInt();
+
+        // Calculate power using loop
+        long result = 1;
+        for (int i = 0; i < exponent; i++) {
+            result *= base;
+        }
+
+        // Calculate power using Math.pow()
+        double mathResult = Math.pow(base, exponent);
+
+        // Display results
+        System.out.println("Power (using loop): " + result);
+        System.out.println("Power (using Math.pow()): " + mathResult);
+
+        scanner.close();
+    }
+}

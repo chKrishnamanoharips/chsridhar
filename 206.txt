@@ -1,0 +1,73 @@
+pro1
+// Interface 1
+interface Animal {
+    void eat();
+}
+
+// Interface 2
+interface Mammal {
+    void breathe();
+}
+
+// Class that implements both interfaces
+class Dog implements Animal, Mammal {
+    // Implementing the method from Animal interface
+    public void eat() {
+        System.out.println("Dog is eating.");
+    }
+
+    // Implementing the method from Mammal interface
+    public void breathe() {
+        System.out.println("Dog is breathing.");
+    }
+}
+
+public class MultipleInheritanceExample {
+    public static void main(String[] args) {
+        // Creating an object of Dog class
+        Dog dog = new Dog();
+
+        // Calling methods from both interfaces
+        dog.eat();      // Output: Dog is eating.
+        dog.breathe();  // Output: Dog is breathing.
+    }
+}
+pro2
+
+import java.util.Scanner;
+
+public class PerfectNumber {
+
+    // Method to check if a number is perfect
+    public static boolean isPerfectNumber(int num) {
+        int sum = 0;
+
+        // Loop to find divisors of num (excluding num itself)
+        for (int i = 1; i <= num / 2; i++) {
+            if (num % i == 0) {
+                sum += i;  // Add divisor to sum
+            }
+        }
+
+        // Check if sum of divisors equals the number itself
+        return sum == num;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Ask the user for input
+        System.out.print("Enter a number to check if it's perfect: ");
+        int num = scanner.nextInt();
+
+        // Check if the number is perfect
+        if (isPerfectNumber(num)) {
+            System.out.println(num + " is a perfect number.");
+        } else {
+            System.out.println(num + " is not a perfect number.");
+        }
+
+        // Close the scanner
+        scanner.close();
+    }
+}

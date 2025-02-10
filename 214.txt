@@ -1,0 +1,76 @@
+pro1
+interface Animal {
+    // Abstract method
+    void sound();
+
+    // Default method
+    default void eat() {
+        System.out.println("This animal eats food.");
+    }
+
+    // Static method
+    static void sleep() {
+        System.out.println("The animal sleeps.");
+    }
+}
+
+// Class implementing the interface
+class Dog implements Animal {
+    // Providing implementation for the abstract method sound
+    public void sound() {
+        System.out.println("The dog barks.");
+    }
+}
+
+// Another class implementing the interface
+class Cat implements Animal {
+    // Providing implementation for the abstract method sound
+    public void sound() {
+        System.out.println("The cat meows.");
+    }
+}
+
+public class InterfaceDemo {
+    public static void main(String[] args) {
+        // Creating objects of the implementing classes
+        Dog dog = new Dog();
+        Cat cat = new Cat();
+
+        // Calling methods from the interface
+        dog.sound();  // Output: The dog barks.
+        dog.eat();    // Output: This animal eats food.
+
+        cat.sound();  // Output: The cat meows.
+        cat.eat();    // Output: This animal eats food.
+
+        // Calling static method from the interface
+        Animal.sleep();  // Output: The animal sleeps.
+    }
+}
+pro2
+public class CountNegativeNumbers {
+
+    // Method to count negative numbers in an array
+    public static int countNegativeNumbers(int[] arr) {
+        int count = 0;  // Variable to store the count of negative numbers
+
+        // Traverse the array
+        for (int i = 0; i < arr.length; i++) {
+            // If the element is negative, increment the count
+            if (arr[i] < 0) {
+                count++;
+            }
+        }
+
+        return count;  // Return the count of negative numbers
+    }
+
+    public static void main(String[] args) {
+        // Example array
+        int[] arr = {1, -2, 3, -4, -5, 6, -7, 8};
+
+        // Call the method and print the result
+        int negativeCount = countNegativeNumbers(arr);
+        System.out.println("The number of negative numbers in the array is: " + negativeCount);
+    }
+}

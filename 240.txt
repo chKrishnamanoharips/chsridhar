@@ -1,0 +1,40 @@
+pro1
+class MathUtils {
+    // Static method to add two numbers
+    static int add(int a, int b) {
+        return a + b;
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        // Calling the static method without creating an object
+        int result = MathUtils.add(5, 10);
+        System.out.println("Sum: " + result);  // Output: Sum: 15
+    }
+}
+pro2
+
+class Person {
+    String name;
+    int age;
+
+    // Constructor
+    Person(String name, int age) {
+        // 'this' refers to the current object's instance variables
+        this.name = name;
+        this.age = age;
+    }
+
+    void display() {
+        System.out.println("Name: " + this.name);
+        System.out.println("Age: " + this.age);
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Person person = new Person("John", 30);
+        person.display();
+    }
+}

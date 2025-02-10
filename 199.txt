@@ -1,0 +1,69 @@
+pro1
+class Person {
+    // Instance variables
+    String name;
+    int age;
+
+    // Constructor with parameters
+    public Person(String name, int age) {
+        this.name = name;  // Initialize 'name' with the passed argument
+        this.age = age;    // Initialize 'age' with the passed argument
+    }
+
+    // Method to display person's details
+    public void displayDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+}
+
+public class ConstructorWithParameterExample {
+    public static void main(String[] args) {
+        // Creating objects of the Person class and passing arguments to the constructor
+        Person person1 = new Person("John", 25);
+        person1.displayDetails();  // Outputs: Name: John, Age: 25
+
+        Person person2 = new Person("Alice", 30);
+        person2.displayDetails();  // Outputs: Name: Alice, Age: 30
+    }
+}
+pro2
+
+class Example {
+    // Instance variables
+    int number;
+    String text;
+
+    // Default constructor (no parameters)
+    public Example() {
+        // Initialize instance variables with default values
+        number = 0;
+        text = "Default";
+        System.out.println("Default constructor called.");
+    }
+
+    // Parameterized constructor
+    public Example(int number, String text) {
+        // Use the parameters to initialize instance variables
+        this.number = number;
+        this.text = text;
+        System.out.println("Parameterized constructor called.");
+    }
+
+    // Method to display object details
+    public void display() {
+        System.out.println("Number: " + number + ", Text: " + text);
+    }
+}
+
+public class ConstructorProgram {
+    public static void main(String[] args) {
+        // Creating an object using the default constructor
+        Example obj1 = new Example();
+        obj1.display();  // Expected output: Number: 0, Text: Default
+
+        // Creating an object using the parameterized constructor
+        Example obj2 = new Example(100, "Hello World");
+        obj2.display();  // Expected output: Number: 100, Text: Hello World
+    }
+}

@@ -1,0 +1,71 @@
+pro1:
+class Person {
+    // Instance variables
+    String name;
+    int age;
+
+    // Constructor to initialize the object
+    public Person(String name, int age) {
+        this.name = name;  // Initializing the 'name' variable
+        this.age = age;    // Initializing the 'age' variable
+    }
+
+    // Method to display person's details
+    public void displayDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+}
+
+public class ConstructorExample {
+    public static void main(String[] args) {
+        // Creating an object of the Person class and passing arguments to the constructor
+        Person person1 = new Person("John", 25);
+        person1.displayDetails();  // Outputs: Name: John, Age: 25
+
+        // Creating another object with different arguments
+        Person person2 = new Person("Alice", 30);
+        person2.displayDetails();  // Outputs: Name: Alice, Age: 30
+    }
+}
+pro2:
+
+class Animal {
+    // Instance variable
+    String name;
+
+    // Constructor to initialize the name
+    public Animal(String name) {
+        this.name = name;
+    }
+
+    // Method to display animal sound
+    public void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+// Child class (Subclass) that inherits from Animal
+class Dog extends Animal {
+    
+    // Constructor to initialize the dog's name (calls parent constructor)
+    public Dog(String name) {
+        super(name);  // Calls the constructor of the parent class (Animal)
+    }
+
+    // Overriding the sound method from the Animal class
+    @Override
+    public void sound() {
+        System.out.println(name + " barks");
+    }
+}
+
+public class SingleInheritanceExample {
+    public static void main(String[] args) {
+        // Creating an object of the Dog class (child class)
+        Dog dog1 = new Dog("Buddy");
+        
+        // Accessing the inherited method
+        dog1.sound();  // Outputs: Buddy barks
+    }
+}

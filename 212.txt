@@ -1,0 +1,63 @@
+pro1
+abstract class Animal {
+    // Abstract method (does not have a body)
+    public abstract void sound();
+
+    // Regular method with a body
+    public void sleep() {
+        System.out.println("The animal is sleeping.");
+    }
+}
+
+// Subclass that inherits from Animal
+class Dog extends Animal {
+    // Providing the implementation of the abstract method
+    public void sound() {
+        System.out.println("The dog barks.");
+    }
+}
+
+// Another subclass
+class Cat extends Animal {
+    // Providing the implementation of the abstract method
+    public void sound() {
+        System.out.println("The cat meows.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // You can't instantiate an abstract class
+        // Animal a = new Animal();  // Error: Animal is abstract
+
+        // Instantiate subclasses
+        Dog dog = new Dog();
+        dog.sound();  // Output: The dog barks.
+        dog.sleep();  // Output: The animal is sleeping.
+
+        Cat cat = new Cat();
+        cat.sound();  // Output: The cat meows.
+        cat.sleep();  // Output: The animal is sleeping.
+    }
+}
+
+pro2
+
+public class ArraySum {
+
+    public static void main(String[] args) {
+        // Example array
+        int[] arr = {1, 2, 3, 4, 5};
+
+        // Variable to store the sum
+        int sum = 0;
+
+        // Loop through the array and add each element to sum
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i];  // Add each element to the sum
+        }
+
+        // Output the sum
+        System.out.println("The sum of array elements is: " + sum);
+    }
+}
